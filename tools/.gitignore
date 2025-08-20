@@ -1,0 +1,18 @@
+# Data files (contain sensitive information)
+scheduled-repos.json
+config.json
+
+# Dependencies
+node_modules/
+
+# Log files
+*.log
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

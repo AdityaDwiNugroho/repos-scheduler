@@ -1,0 +1,32 @@
+{
+  "name": "Repository Scheduler",
+  "short_name": "RepoScheduler",
+  "description": "Schedule GitHub repository creation with precise timing",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#2563eb",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["developer", "productivity", "utilities"],
+  "lang": "en",
+  "dir": "ltr",
+  "orientation": "portrait-primary"
+}

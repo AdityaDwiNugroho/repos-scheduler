@@ -1,0 +1,36 @@
+{
+  "name": "repo-scheduler-server",
+  "version": "1.0.0",
+  "description": "Web server for scheduled GitHub repository creation",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "pm2:start": "pm2 start ecosystem.config.js",
+    "pm2:stop": "pm2 stop repo-scheduler",
+    "pm2:restart": "pm2 restart repo-scheduler",
+    "pm2:logs": "pm2 logs repo-scheduler"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.0.0",
+    "morgan": "^1.10.0",
+    "express-rate-limit": "^6.8.1",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "node-schedule": "^2.1.1",
+    "axios": "^1.6.0",
+    "fs-extra": "^11.1.1",
+    "dotenv": "^16.3.1",
+    "uuid": "^9.0.0",
+    "compression": "^1.7.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "pm2": "^5.3.0"
+  },
+  "keywords": ["github", "scheduler", "automation", "repository", "server"],
+  "author": "Repository Scheduler",
+  "license": "MIT"
+}

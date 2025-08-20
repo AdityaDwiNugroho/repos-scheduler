@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repository Scheduler</title>
+    <meta name="description" content="Schedule GitHub repository creation at specific dates and times">
+    <meta name="keywords" content="GitHub, repository, scheduler, automation, programming">
+    <meta name="author" content="Repository Scheduler">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.ico">
+    <link rel="alternate icon" href="assets/favicon.ico">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Repository Scheduler">
+    <meta property="og:description" content="Schedule GitHub repository creation at specific dates and times">
+    <meta property="og:image" content="assets/og-image.png">
+    <meta property="og:url" content="https://AdityaDwiNugroho.github.io/repos-scheduler">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Repository Scheduler">
+    <meta name="twitter:description" content="Schedule GitHub repository creation at specific dates and times">
+    <meta name="twitter:image" content="assets/og-image.png">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                    </svg>
+                    <h1>Repository Scheduler</h1>
+                    <span class="version-badge">v2.0</span>
+                </div>
+                <div class="header-actions">
+                    <a href="https://github.com/AdityaDwiNugroho/repos-scheduler" target="_blank" rel="noopener" class="github-link" aria-label="View on GitHub">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                        </svg>
+                    </a>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                        <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"/>
+                            <path d="m12 1-1 2m0 18-1 2M4.22 4.22l1.42 1.42m12.72 12.72 1.42 1.42M1 12l2 1m18 0 2-1M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                        </svg>
+                        <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="auth-section" id="authSection">
+                <div class="card">
+                    <div class="card-header">
+                        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                            <circle cx="12" cy="16" r="1"/>
+                            <path d="m7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                        <h2>GitHub Authentication</h2>
+                    </div>
+                    <p class="card-description">Enter your GitHub Personal Access Token to schedule repository creation.</p>
+                    <div class="form-group">
+                        <label for="githubToken">Personal Access Token</label>
+                        <input type="password" id="githubToken" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" />
+                        <small class="form-help">
+                            <a href="https://github.com/settings/tokens/new" target="_blank" rel="noopener">
+                                Create a new token
+                            </a> with 'repo' permissions
+                        </small>
+                    </div>
+                    <button class="btn btn-primary" id="authenticateBtn">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4m-5-4l4-4-4-4m5 8H3"/>
+                        </svg>
+                        Authenticate
+                    </button>
+                </div>
+            </div>
+
+            <div class="scheduler-section" id="schedulerSection" style="display: none;">
+                <div class="user-info" id="userInfo">
+                    <div class="user-avatar">
+                        <img id="userAvatar" src="" alt="User Avatar" />
+                    </div>
+                    <div class="user-details">
+                        <h3 id="userName"></h3>
+                        <p id="userLogin"></p>
+                    </div>
+                    <button class="btn btn-outline" id="logoutBtn">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4m7 14l5-5-5-5m5 5H9"/>
+                        </svg>
+                        Logout
+                    </button>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                        <h2>Schedule Repository Creation</h2>
+                    </div>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="repoName">Repository Name</label>
+                            <input type="text" id="repoName" placeholder="my-awesome-project" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="repoDescription">Description (Optional)</label>
+                            <input type="text" id="repoDescription" placeholder="An awesome project description" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="scheduleDate">Schedule Date</label>
+                            <input type="datetime-local" id="scheduleDate" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="isPrivate" />
+                                <span class="checkmark"></span>
+                                Private Repository
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="initWithReadme" checked />
+                                <span class="checkmark"></span>
+                                Initialize with README
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="gitignoreTemplate">Gitignore Template</label>
+                            <select id="gitignoreTemplate">
+                                <option value="">None</option>
+                                <option value="Node">Node.js</option>
+                                <option value="Python">Python</option>
+                                <option value="Java">Java</option>
+                                <option value="C++">C++</option>
+                                <option value="Go">Go</option>
+                                <option value="Rust">Rust</option>
+                                <option value="PHP">PHP</option>
+                                <option value="Ruby">Ruby</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary" id="scheduleBtn">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12,6 12,12 16,14"/>
+                        </svg>
+                        Schedule Repository
+                    </button>
+                </div>
+
+                <div class="scheduled-repos" id="scheduledRepos">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h3 style="margin: 0;">
+                            <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>
+                            </svg>
+                            Scheduled Repositories
+                        </h3>
+                        <button class="btn btn-outline btn-sm" id="forceCheckBtn">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.3"/>
+                            </svg>
+                            Check Now
+                        </button>
+                    </div>
+                    <div class="repos-list" id="reposList">
+                        <!-- Scheduled repositories will be displayed here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2025 Repository Scheduler.</p>
+                    <p class="footer-note">A blank page awaits.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://github.com/AdityaDwiNugroho/repos-scheduler" target="_blank" rel="noopener">GitHub</a>
+                    <a href="https://github.com/AdityaDwiNugroho/repos-scheduler/issues" target="_blank" rel="noopener">Issues</a>
+                    <!-- <a href="https://github.com/AdityaDwiNugroho/repos-scheduler/blob/main/README.md" target="_blank" rel="noopener">Documentation</a> -->
+                </div>
+            </div>
+        </footer>
+
+        <div class="status-toast" id="statusToast">
+            <div class="toast-content">
+                <span class="toast-message" id="toastMessage"></span>
+                <button class="toast-close" id="toastClose">×</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
