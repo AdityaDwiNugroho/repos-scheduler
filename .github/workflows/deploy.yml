@@ -3,8 +3,6 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 permissions:
   contents: read
@@ -24,6 +22,8 @@ jobs:
       
     - name: Setup Pages
       uses: actions/configure-pages@v4
+      with:
+        enablement: true
       
     - name: Build
       run: |
@@ -34,7 +34,7 @@ jobs:
         # Create robots.txt
         echo "User-agent: *" > _site/robots.txt
         echo "Allow: /" >> _site/robots.txt
-        echo "Sitemap: https://${{ github.repository_owner }}.github.io/sitemap.xml" >> _site/robots.txt
+        echo "Sitemap: https://${{ github.repository_owner }}.github.io/repos-scheduler/sitemap.xml" >> _site/robots.txt
         
         # Create sitemap.xml
         cat > _site/sitemap.xml << EOF
